@@ -1,0 +1,1 @@
+Exercícios e trabalhos da disciplina de Paradigmas de Programação (2018-01), com o professor Maicon R. Zatelli. Universidade Federal de Santa Catarina.
