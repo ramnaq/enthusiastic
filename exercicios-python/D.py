@@ -2,8 +2,7 @@
 
 n = int(input())
 a, op, b = input().split()
-a = int(a)
-b = int(b)
+a, b = int(a), int(b)
 
 output = 'OK'
 if op == '+':

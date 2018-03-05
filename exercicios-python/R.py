@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 competidores, n_voltas = list(map(int, input().split()))
-
 competidor_1 = list(map(int, input().split()))
+
 melhor_tempo = sum(competidor_1)
 vencedor = 1
 for i in range(1, competidores):

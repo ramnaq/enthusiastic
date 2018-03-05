@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 # segundo link: dobro do terceiro
 # segundo link: metade do primeiro
 

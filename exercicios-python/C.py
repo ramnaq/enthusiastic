@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-competidores, folhas, f_competidor = input().split()
-competidores = int(competidores)
-folhas = int(folhas)
-f_competidor = int(f_competidor)
+args = input().split()
+competidores, folhas, f_competidor = list(map(int, args))
 
 if (f_competidor * competidores) <= folhas:
     print('S')

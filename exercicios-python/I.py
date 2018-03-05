@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 diametro = int(input())
-x, y, z = input().split()
-x, y, z  = int(x), int(y), int(z)
+x, y, z = list(map(int, input().split()))
 
 output = 'N'
 if (x >= diametro and y >= diametro and z >= diametro):
