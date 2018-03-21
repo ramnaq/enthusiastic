@@ -5,22 +5,15 @@ mcd a b =
 	if a >= b then mcd (a-b) b
 	else mcd a (b-a)
 
-areCoprime :: Int -> Int -> String
-areCoprime a b =
-	if mcd a b == 1 then
-		"Coprime"
+eulersTotient :: Int -> Int -> Int
+eulersTotient 1 _ = 1
+eulersTotient n i =
+	if (mcd n i) == 1 then
+		(eulersTotient n i-1) + 1
 	else
-		"Not coprime"
-
-eulersTotient :: Int -> Int
-eulersTotient 0 = 0
-eulersTotient n = do
-	if areCoprime n (n-1) == "Coprime" then
-		eulersTotient n-1 + 1
-	else
-		eulersTotient n-1
+		eulersTotient n i-1
 
 main = do
 	nStr <- getLine
 	let n = read nStr :: Int
-	print (eulersTotient n)
+	print (eulersTotient n n-1)

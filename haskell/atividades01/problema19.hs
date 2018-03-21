@@ -1,0 +1,2 @@
+aPrime :: Int -> Int
+
