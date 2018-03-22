@@ -15,4 +15,4 @@ eulersTotient n i =
 main = do
 	nStr <- getLine
 	let n = read nStr :: Int
-	print (eulersTotient n n)
+	print $ eulersTotient n (n-1)
