@@ -47,10 +47,15 @@ maioresQueElemento (No n esq dir) x =
 		maioresQueElemento esq x + maioresQueElemento dir x
 
 
+nodos :: Arvore -> Int
+nodos Null = 0
+nodos (No n esq dir) =
+	1 + nodos esq + nodos dir
+
 mediaElementos :: Arvore -> Float
 mediaElementos Null = 0
-mediaElementos (No n esq dir)
-	somaElementos (No n esq dir)
+mediaElementos (No n esq dir) =
+	fromIntegral (somaElementos (No n esq dir)) / fromIntegral (nodos (No n esq dir))
 	
 
 main = do
