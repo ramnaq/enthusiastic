@@ -58,6 +58,12 @@ mediaElementos (No n esq dir) =
 	fromIntegral (somaElementos (No n esq dir)) / fromIntegral (nodos (No n esq dir))
 	
 
+elementos :: Arvore -> [Int]
+elementos Null = []
+elementos (No n esq dir) =
+	[n] ++ elementos esq ++ elementos dir
+
+
 main = do
 	print $ somaElementos minhaArvore
 	print $ buscaElemento minhaArvore 30
@@ -66,3 +72,4 @@ main = do
 	-- chamadas das funções acrescentadas
 	print $ ocorrenciasElemento minhaArvore 56
 	print $ mediaElementos minhaArvore
+	print $ elementos minhaArvore
