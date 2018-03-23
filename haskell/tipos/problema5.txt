@@ -1,0 +1,28 @@
+O newtype é semelhante ao uso de data, mas só pode conter um construtor e um
+valor nesse construtor, enquanto que este último permite zero ou mais valores no
+construtor.
+
+Pensando nisso, façamos uma comparação entre o uso de data com construtor com
+valor único e o newtype (que obrigatoriamente deve usar um único valor no
+construtor):
+
+data D = D Int
+newtype N = N Int
+
+Temos que (N x) é equivalente a x, sendo x um tipo indefinido, isto causa um
+erro. Mas (D x) não é equivalente a x, e pode ser avaliado.
+
+Um detalhe técnico é que o uso de data carrega um overhead pela característica
+de "laziness", o que não acontece com newtype, que cria um type a partir de um
+já existente, mas que têm diferentes identidades no sistema de tipos do
+Haskell.
+
+O tipo definido no campo do construtor do newtype é isomórfico ao novo tipo
+definido com newtype.  Isso significa que depois deste novo tipo ser checado no
+tempo de compilação, no tempo de execução os dois tipos podem ser tratados como
+o mesmo, sem o overhead associado ao construtor como com o uso de data.
+
+Isto nos diz que podemos usar o newtype quando queremos declarar instâncias
+diferentes para um tipo específico, ou queremos um tipo abstrato. Eles serão
+considerados distintos pelo sistema de tipos, mas identicos no tempo de
+execução.
