@@ -1,0 +1,50 @@
+1 - a) Classes primitivas são classes definidas primariamente/previamente, isto
+significa que essas classes não herdam de nenhuma outra. São exemplos de
+classes primitivas do Haskell: Bounded, Monad e Read.
+	
+	b) Classes secundárias são aquelas definidas a partir de outras, ou seja,
+	elas são subclasses de outras classes (estas por sua vez podem ser também
+	classes secundárias ou primitivas). São exemplos de classes secundárias do
+	Haskell: Num, Real, Fractional.
+
+	Abaixo temos uma breve explicação sobre cada uma das classes citadas nas
+	questões a) e b):
+
+	(Primitivas)
+
+	Bounded - estabelece limites mínimos e máximos e instancia alguns tipos
+	(Int, Char, (), Ordering, Tuples e Bool). Seus métodos são: minBound e
+	maxBound. Esses métodos definem, respectivamente, os limites mínimo e
+	máximo do tipo em questão.
+
+	Monad - define os métodos de operações sobre Mônadas e instancia os tipos
+	IO, [] e Maybe. Dois dos seus métodos são (>>=) e (>>). A primeira é
+	chamada "bind", ela obtém o valor do contêiner de uma Mônada e passa para
+	uma função que produz um outro contêiner, contendo um novo valor
+	possivelmente de um tipo diferente. A função (>>) é um operador conveniente
+	para fazer o "bind" para uma computação de mônada (monadic computation) que
+	não requere uma saída da computação anterior na sequência, ela é definida
+	em termos da função "bind" (>>=).
+
+	Read - define, assim como a classe Show, conversões entre tipos de número e
+	caractér. Ela contém as funções readsPrec e readList.  readsPrec tenta
+	parsear o valor no início de uma String e retornar uma lista de pares, se
+	não tiver sucesso, retorna uma lista vazia. readList provê um modo
+	específico para o programador parsear os valores de uma lista.  Mais
+	detalhes no final da página
+	http://hackage.haskell.org/package/base-4.11.0.0/docs/Prelude.html#t:Read
+	onde há a documentação dos métodos.
+
+	(Secundárias)
+
+	Num - classe básica de tipo numérico, portanto define, por exemplo, as
+	funções (+) e (-), de soma e subtração de elementros do tipo numérico
+	instanciado.  Esta classe herda de Eq e Show.
+
+	Real - é uma subclasse de Num (e Ord) que representa um número real (R).
+	Possui a função toRational, que retorna o valor racional de um inteiro
+	dado, com máxima precisão.
+
+	Fractional - definem os métodos numéricos de operações. Sua função (/)
+	executa a divisão (fração) e fromRational recebe um Rational converte para
+	o tipo da instância "atual" de Fractional.
