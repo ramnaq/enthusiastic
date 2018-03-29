@@ -1,0 +1,56 @@
+O polimorfismo nos permite criar funções que podem agir em argumentos de
+diferentes tipos. Um exemplo muito simples seria para fazer soma: 1+4 funciona
+tão bem quanto 1.3+3.14 e não são necessárias duas funções, addInt e addFloat,
+o compilador lida com isso. O cientista da computação britânico Christopher
+Strachey, pioneiro no design de linguagens de programação, definiu dois tipos
+de polimorfismo.
+
+POLIMORFISMO AD-HOC
+
+	Ocorre quando uma função de comporta de uma maneira diferente conforme os
+	tipos de seus argumentos, às vezes com implementações completamente
+	heterogêneas. Sobrecarga de operador é um exemplo comum de polimorfismo
+	Ad-hoc. Considera-se que existem dois tipos de polimorfismo ad-hoc:
+
+	Ad-hoc de sobrecarga (polimorfismo de sobrecarga) - usa-se o mesmo nome de função, contudo
+	o que determinará qual função será executada em determinado contexto é a "type annotation"/"type signature".
+	Para este tipo de polimorfismo Ad-hoc temos o exemplo comum de soma de inteiros ou soma de floats.
+
+	Ad-hoc de coersão (polimorfismo de coersão) - operação semântica que se faz necessária para converter
+	um argumento para o tipo esperado pela função. Um função com esse tipo de polimorfismo pode facilmente
+	resultar em um "type error". Este polimorfismo pode ser executado estaticamente em tempo de compilação,
+	inserindo a conversão antes de executar a função, ou dinamicamente, por testes dos argumentos em tempo
+	de execução. Um exemplo seria a soma de uma valor tipo int com um valor tipo float.
+
+
+POLIMORFISMO UNIVERSAL
+
+	Funções universalmente polimórficas normalmente irão trabalhar com um
+	número infinito de tipos (com todos eles tendo em comum uma estrutura),
+	enquanto uma função com polimorfismo Ad-hoc irá funcionar apenas com um
+	conjunto de tipos diferentes e possivelmente não relacionados. Os tipos de Polimorfismo Universal são:
+
+	Polimorfismo paramétrico - uma função que possui esse tipo de polimorfimso tem um parâmetro de tipo
+	implícito ou explícito, o qual determina o tipo do argumento para cada aplicação da função.
+
+	maior :: (Ord a) => a -> a -> a
+	maior a b
+		| a > b == a
+		| otherwise = b
+	
+	Este polimorfismo é o do recurso "Generics" das linguagens de programação (funções genéricas).
+
+	Polimorfismo por inclusão - é um tipo de sistema de tipagem o qual um tipo pode ter subtipos, que
+	herdam operações daquele. Um tipo T é um conjunto de valores, munidos de algumas operações. Um
+	subtipo de T é um subconjunto de valores de T, munidos com as mesmas operações de T. Como todo valor
+	do subtipo é também um valor de T, então eles podem ser usados no contexto onde um valor de tipo T
+	é esperado (David Watt).
+	Este é o polimorfismo "básico" da herança nas linguagens orientadas a objetos.
+
+
+Em termos de implementação, um polimorfismo universão irá fazer a função executar o mesmo código
+para argumentos de qualquer tipo 'admissível', enquanto que para o Ad-hoc uma função pode executar
+código diferente para cada tipo de argumento.
+
+O Polimorfismo Universal é considerado o "verdadeiro polimorfismo", enquanto que o polimorfismo ad-hoc é
+algum tipo de polimorfismo.
