@@ -1,0 +1,21 @@
+Uma declaração fixity (ou fixity declaration) em Haskell permite a fixação e
+relação de precedência de um ou mais operadores. Um integer em uma declaração
+fixity deve estar no intervalo [0, 9]. Uma declaração fixity pode aparecer em
+qualquer lugar em que um type signature aparece e, como essa, declara a
+propriedade de um operador em particular. Também como uma type signature, a
+declaração fixity pode apenas ocorrer na mesma sequencia de declarações que a
+declaração do próprio operador. No máximo uma declaração fixity pode ser
+definida para cada operador (com uma exceção).
+
+Existem três tipos dela: sem associatividade, associatividade à esquerda e à
+direita (infix, infixl e infixr, respectivamente) e 10 níveis de precedência
+(de 0 a 9). O nível 0 é de menor precedência e o nível 9 o de maior
+precedência.  O padrão para qualquer operador que não tenha declarado nenhum
+fixity é 'infixl 9'.
+
+Veja o exemplo composto pelos módulos neste diretório.
+
+'Bar.op' é 'infixr 7', 'Foo.op' é 'infix 3' e a definição aninhada de 'op' no
+lado direito de 'f' tem a fixity padrão ('infixl 9').
+* Também seria possível declarar uma fixity para a definição aninhada de 'op',
+  com uma declaração de "nested fixity" (fixity aninhada).
