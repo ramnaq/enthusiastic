@@ -1,0 +1,7 @@
+O'Haskell é uma extensão enxuta do Haskell, a qual adiciona o suporte a subtyping e "monadic objects"
+Esta linguagem derivada do Haskell também suporta a escrita de programas imperativos orientados a objetos,
+com polimorfismo paramétrico e inferência de tipo automática. Além disso o O'Haskell também possibilita
+a programação concorrente, com um modelo de comunicação reativa e passagem de mensagens de maneira
+síncrona ou assíncrona.
+
+A letra "O" em seu nome denota "Objetos" e também lembra "IO".
