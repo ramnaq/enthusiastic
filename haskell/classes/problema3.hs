@@ -10,7 +10,6 @@ class (Integral x) => MeuInt x where
 	(===) :: x -> x -> Bool
 
 	{- my methods -}
-	--myIntSqrt :: x -> x
 	major :: x -> x -> x
 	(***) :: x -> x -> x
 
@@ -33,7 +32,7 @@ class (Integral x) => MeuInt x where
 		| isPair n = False
 		| otherwise = True
 
-	isPrime n = null [ k | k <- [2..n], n `mod` k == 0]
+	isPrime n = null [ k | k <- [2..n-1], n `mod` k == 0]
 
 	mcd n m
 		| n == 0 = m
@@ -45,21 +44,26 @@ class (Integral x) => MeuInt x where
 		| n - m <= 1 = True
 		| otherwise = False
 
-	{-
-	myIntSqrt n
-		| 0 = 0
-		| 1 = 1
-		| otherwise = head $ dropWhile (\x -> x*x > n) $ iterate (\x -> (x + n `div` x) `div` 2) (n `div` 2)
-	-}
-
 	major n m
 		| n > m = n
 		| otherwise = m
 	
 	(***) n m = n*n * m
 
+
 instance MeuInt Integer
 instance MeuInt Int
 
 main = do
-	print "bla"
+	print $ bigger (4::Integer) (12::Integer)
+	print $ smaller (4::Integer) (12::Integer)
+
+	print $ isPair (9::Integer)               -- False
+	print $ isOdd (17::Integer)                -- True
+	print $ isPrime (9::Integer)              -- False
+	print $ isPrime (13::Integer)             -- True
+	print $ mcd (45::Integer) (9::Integer)    -- 9
+	print $ (===) (8::Integer) (9::Integer)   -- True
+	print $ (===) (7::Integer) (9::Integer)   -- False
+	print $ major (45::Integer) (9::Integer)  -- 45
+	print $ (***) (2::Integer) (3::Integer)   -- 12
