@@ -1,0 +1,31 @@
+A enumeração permite enumerar todos os valores em um tipo finito. Ela é feito no Haskell pelo módulo
+enumerate, que fornece uma typeclass que enumera valores em um tipo finito; uma instância genérica
+para deviração automática; e provê a transformação de funções em Maps.
+
+A classe Enum idefine operações em tipos ordenados sequencialmente e é definida da seguinte maneira:
+
+	class Enum a where
+		succ, pred :: a -> a  -- sucessor e predecessor de um dado elemento da sequência
+		toEnum :: Int -> a
+		fromEnum :: a -> Int
+		enumFrom :: a -> [a]
+		
+		{- os métodos "enumFrom..." são usados ao traduzir sequências aritméticas -}
+		enumFromThen :: a -> a -> [a]
+		enumFromTo :: a -> a -> [a]
+		enumFromThenTo :: a -> a -> a -> [a]
+
+		-- declarações padrão do Prelude
+
+Sendo assim, uma simples instância de Enum poderia ser:
+
+	data MyDataType = Foo | Bar
+	instance Enum MyDataType
+		toEnum 0 = Foo
+		toEnum 1 = Foo
+
+		fromEnum Foo = 0
+		fromEnum Bar = 1
+	
+	[Foo ..] == [Foo, Bar, Baz]
+	from Enum Baz == 2
