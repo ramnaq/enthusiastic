@@ -1,11 +1,11 @@
-module Media (size, media) where
+module Problema2 (tamanho, media) where
 
-import Soma
+import Problema1
 
-size :: [Int] -> Int
-size [] = 0
-size (head:tail) = 1 + size tail
+tamanho :: [Int] -> Int
+tamanho [] = 0
+tamanho (_:tail) = 1 + tamanho tail
 
 media :: [Int] -> Float
 media [] = 0
-media nums = fromIntegral (soma nums) / fromIntegral (size nums)
+media nums = fromIntegral (soma nums) / fromIntegral (tamanho nums)
