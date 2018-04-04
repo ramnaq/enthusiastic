@@ -1,12 +1,15 @@
 module Main (main) where
 
-import Problema1  -- soma
-import Problema2  -- média
-import Problema3  -- menor elemento
-import Problema4  -- diferença entre maior e menor elementos
-import Problema5  -- verificação de presença de dado elemento (busca)
-import Problema6  -- número de ocorrências de dado elemento
-import Problema7  -- adição de funções ao arquivo alunos.hs
+import Problema1   -- soma
+import Problema2   -- média
+import Problema3   -- menor elemento
+import Problema4   -- diferença entre maior e menor elementos
+import Problema5   -- verificação de presença de dado elemento (busca)
+import Problema6   -- número de ocorrências de dado elemento
+import Problema7   -- adição de funções ao arquivo alunos.hs
+import Problema8   -- inversão de lista
+import Problema9   -- implementação de função de mapeamento sobre lista (map)
+import Problema10  -- implementação de função de filtragem sobre lista(filter)
 
 main = do
     let nums = [3, 2, 4, 7, 1, 4]
@@ -28,3 +31,7 @@ main = do
     print $ aprovados2 alunos  -- ["Bob", "Tom"]
 
     print $ gerarPares alunos [(1, "Ana", 3.4), (4, "Pedro", 10), (5, "Julia", 10)]
+
+    print $ inverte nums        -- [4, 1, 7, 4, 2, 3]
+    print $ mapear (*2) nums    -- [6, 4, 8, 14, 2, 8]
+    print $ filtrar (>1) nums2  -- [2, 3]

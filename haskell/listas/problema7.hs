@@ -22,7 +22,7 @@ getNome (a,b,c) = b
 getPrimeiroAluno (a:_) = a
 
 {- modificada do arquivo original "alunos.hs" -}
-gerarPares l1 l2 = [((nomeA, nomeB)) | (idA, nomeA, _) <- l1, (idB, nomeB, _) <- l2, idA /= idB]
+gerarPares l1 l2 = [(nomeA, nomeB) | (idA, nomeA, _) <- l1, (idB, nomeB, _) <- l2, idA /= idB]
 
 aprovados turma =
     map (getNome) (filter (aprovado) turma)
