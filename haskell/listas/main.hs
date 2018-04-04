@@ -6,7 +6,7 @@ import Problema3  -- menor elemento
 import Problema4  -- diferença entre maior e menor elementos
 import Problema5  -- verificação de presença de dado elemento (busca)
 import Problema6  -- número de ocorrências de dado elemento
-import Problema7  -- adição de funções ao arquivo aluno.hs
+import Problema7  -- adição de funções ao arquivo alunos.hs
 
 main = do
     let nums = [3, 2, 4, 7, 1, 4]
@@ -23,3 +23,8 @@ main = do
     print $ ocorrencias nums2 1  -- 2
     print $ ocorrencias nums2 3  -- 1
     print $ ocorrencias nums2 7  -- 0
+
+    print $ aprovados alunos   -- ["Bob", "Tom"]
+    print $ aprovados2 alunos  -- ["Bob", "Tom"]
+
+    print $ gerarPares alunos [(1, "Ana", 3.4), (4, "Pedro", 10), (5, "Julia", 10)]

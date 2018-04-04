@@ -1,15 +1,18 @@
-module Problema7 (alunos, getNome, getPrimeiroAluno, gerarPares) where
+-- arquivo alunos.hs modificado
+
+module Problema7 (alunos, getNome, getPrimeiroAluno, gerarPares, aprovados, aprovados2) where
 
 alunos :: [(Int, String, Float)]
 getNome :: (Int, String, Float) -> String
 getPrimeiroAluno :: [(Int, String, Float)] -> (Int, String, Float)
-gerarPares :: [t] -> [u] -> [(t,u)] 
+
+-- função modificada
+gerarPares :: [(Int, String, Float)] -> [(Int, String, Float)] -> [(String,String)]
 
 {- funções do exercício -}
 aprovados :: [(Int, String, Float)] -> [String]
 aprovados2 :: [(Int, String, Float)] -> [String]
-
-getNotas :: [(Int, String, Float)] -> [Float]
+aprovado :: (Int, String, Float) -> Bool  -- função auxiliar
 
 
 alunos = [(1, "Ana", 3.4), (2, "Bob", 6.7), (3, "Tom", 7.6)]
@@ -18,14 +21,15 @@ getNome (a,b,c) = b
 
 getPrimeiroAluno (a:_) = a
 
-gerarPares l1 l2 = [(a,b) | a <- l1, b <- l2]
+{- modificada do arquivo original "alunos.hs" -}
+gerarPares l1 l2 = [((nomeA, nomeB)) | (idA, nomeA, _) <- l1, (idB, nomeB, _) <- l2, idA /= idB]
 
-aprovados ((a, b, nota):xs) =
-    map (getNome) (filter (nota>=6) xs)
+aprovados turma =
+    map (getNome) (filter (aprovado) turma)
 
-aprovados2 [(a, b, c)] = ["bla"]
+aprovado (_, _, nota) = nota >= 6
 
-getNotas ((_, _, nota):xs) = [nota] ++ getNotas xs
-
-main = do
-    print (getPrimeiroAluno alunos)
+aprovados2 [] = []
+aprovados2 ((_, nome, nota):tail)
+    | nota >= 6 = [nome] ++ aprovados2 tail
+    | otherwise = aprovados2 tail
