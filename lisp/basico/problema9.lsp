@@ -1,0 +1,20 @@
+(defun squared-diff (x y)
+  (expt (- x y) 2)
+)
+
+(defun distance (x1 y1 z1 x2 y2 z2)
+  (sqrt (+ (+ (squared-diff x2 x1) (squared-diff y2 y1)) (squared-diff z2 z1)))
+)
+
+(defun main()
+  (setq x1 (read))
+  (setq y1 (read))
+  (setq z1 (read))
+  (setq x2 (read))
+  (setq y2 (read))
+  (setq z2 (read))
+  (write-line (write-to-string (expt (- z2 z1) 2)))
+  (write-line (write-to-string (distance x1 y1 z1 x2 y2 z2)))
+)
+
+(main)
