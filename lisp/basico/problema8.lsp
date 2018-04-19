@@ -5,7 +5,7 @@
 (defun bhaskara (a b c)
   (setq posivite-root (/ (+ (- b) (sqrt-delta a b c)) (* 2 a)))
   (setq negative-root (/ (- (- b) (sqrt-delta a b c)) (* 2 a)))
-  (values posivite-root negative-root)
+  (cons posivite-root negative-root)
 )
 
 (defun main()
