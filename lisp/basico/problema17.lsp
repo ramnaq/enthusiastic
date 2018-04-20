@@ -2,11 +2,10 @@
   (cond
     ((< n 2) NIL)
     ((eq n 2) T)  ; 2 is the first prime (the only pair prime)
-    ((eq (mod n 2) 0) NIL)  ; n is a pair number different of 2
-    ((> k (isqrt n)) T)  ; already reached the sqrt of n
-    ; k doesn't divide n, class recursively
+    ((eq (mod n 2) 0) NIL)  ; n cannot be pair (except 2)
+    ((> k (isqrt n)) T)  ; we have to test just until (isqrt n)
+    ; k doesn't divide n? Great, so continue recursively with odd k's
     ((<= k (isqrt n)) (and (not (eq (mod n k) 0)) (is-prime n (+ 2 k))))  
-    (t T)
   )
 )
 
