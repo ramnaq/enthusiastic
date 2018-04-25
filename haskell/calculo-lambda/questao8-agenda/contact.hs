@@ -8,7 +8,7 @@ type Gender = Char
 type Phone = String
 type Email = String
 
-type Record = Person Id Name Age Gender Phone Email
+type Record = (Id, Name, Age, Gender, Phone, Email)
 
 getId :: Record -> Id
 getId (Person _ _ age _ _ _) = age
