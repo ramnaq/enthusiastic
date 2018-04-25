@@ -4,23 +4,23 @@ module Contact (Record, getId, getName, getVisualForm) where
 type Id = Int
 type Name = String
 type Age = Int
-type Sex = Char
+type Gender = Char
 type Phone = String
 type Email = String
 
-data Record r = Person Id Name Age Sex Phone Email
+type Record = Person Id Name Age Gender Phone Email
 
-getId :: Record r -> Id
+getId :: Record -> Id
 getId (Person _ _ age _ _ _) = age
 
-getName :: Record r -> Name
+getName :: Record -> Name
 getName (Person _ name _ _ _ _) = name
 
-getVisualForm :: Record r -> String
+getVisualForm :: Record -> String
 getVisualForm (Person id name age sex phone email) =
     "id: " ++ show id ++
     "\nname: " ++ name ++
     "\nage: " ++ show age ++
-    "\nsex:" ++ show sex ++
+    "\ngender:" ++ show Gender ++
     "\nphone number: " ++ phone ++
     "\nemail: " ++ email ++ "\n"
