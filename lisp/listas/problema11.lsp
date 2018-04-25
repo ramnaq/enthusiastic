@@ -1,0 +1,15 @@
+(defun my-first(n l)
+  (if (OR (eq n 0) (OR (null l) (> n (list-length l))))
+    ()
+    (cons (car l) (my-first (- n 1) (cdr l)))
+  )
+)
+
+(defun main()
+  (write-line (write-to-string (my-first 0 '(1 2 3))))
+  (write-line (write-to-string (my-first 1 '(1 2 3))))
+  (write-line (write-to-string (my-first 2 '(1 2 3))))
+  (write-line (write-to-string (my-first 3 '(1 2 3))))
+)
+
+(main)
