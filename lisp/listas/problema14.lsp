@@ -44,7 +44,7 @@
 (defun getValuesFromMedias(medias)
     (if (null medias)
         ()
-        (cons (last (car medias)) (getValuesFromMedias (cdr medias)))
+        (cons (cdr (car medias)) (getValuesFromMedias (cdr medias)))
     )
 )
 
@@ -60,7 +60,7 @@
 (defun mediaTurma(alunos)
     (if (null alunos)
         ()
-        (media (getValuesFromMedias '(2 2)))
+        (media (getValuesFromMedias (medias alunos)))
     )
 )
 
