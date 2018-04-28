@@ -4,7 +4,6 @@ import System.IO
 import Data.List
 import Contact
 
-
 -- declarations
 
 _path = "notebook.db"
@@ -20,14 +19,14 @@ saveContact (id, name, age, gender, phone, email) = do
     let contact = (id, name, age, gender, phone, email)
     appendFile _path (show contact ++ "\n")
 
+{- If a contact exists in the system, then returns it, else returns Nothing.
+ - 
+ - Getting a list of ids, verifies if one of them matches the given id.
+ - If it matches, then returns the Contact-}
 searchContact id = do
     handle <- openFile _path ReadMode
     contactsList <- map read <$> lines <$> hGetContents handle :: IO [Record]
-    contactsIds <- mapM getIOId contactsList
-    if (find (== id) contactsIds) /= Nothing then
-        return $ getContactWithId id contactsList
-    else
-        return Nothing
+    return $ getContactWithId id contactsList
 
 getContactWithId id contactsList
     | contactsList == [] = Nothing
