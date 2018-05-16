@@ -42,11 +42,11 @@
   valid
 )
 
-(defun valid-colums(m d)
+(defun valid-columns(m d)
   (setq valid T)
   (dotimes (j d)
     (dotimes (i d)
-      (setq valid (AND valid (valid-sequence (get-colum m j) numbers)))
+      (setq valid (AND valid (valid-sequence (get-column m j) numbers)))
     )
   )
   valid
@@ -97,7 +97,7 @@
     (write-line (write-to-string x)) ;imprimindo uma matriz
     (print (valid-raws x 9))
     (setf (aref x 8 1) 33) ;alrerando o elemento da posiÃ§Ã£o 0,1 para 33
-    (print (valid-raws x 9))
+    (print (cars x))
 )
 
 
