@@ -1,0 +1,15 @@
+(defun filter(f l)
+  (if (null l)
+    ()
+    (if (funcall f (car l))
+      (cons (car l) (filter f (cdr l)))
+      (filter f (cdr l))
+    )
+  )
+)
+
+(defun main()
+    (write-line (write-to-string (filter (lambda (x) (eq (mod x 2) 1)) '(1 2 3 4 5))))
+)
+
+(main)
