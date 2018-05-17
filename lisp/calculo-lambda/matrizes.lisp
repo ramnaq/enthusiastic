@@ -1,4 +1,3 @@
-
 (setf x (make-array '(9 9) ;criando uma matriz 3x3
    :initial-contents '((1 3 2 5 7 9 4 6 8)
                        (4 9 8 2 6 1 3 7 5)
