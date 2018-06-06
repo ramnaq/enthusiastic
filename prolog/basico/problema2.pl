@@ -29,8 +29,15 @@ professor(maicon, ine5416).
 
 
 % regras
+
 ensina(X,Y) :- estudante(Y,D), professor(X,D).
 colegas(X,Y) :- estudante(X,D), estudante(Y,D), X \== Y.
+
+/* regra adicional
+ * Se refere a quem é o professor Y de determinada disciplina X. Por exemplo:
+ * responsavel(mtm5454, Y) resulta em Y = leandro.
+ */
+responsavel(X,Y) :- professor(Y,X).
 
 
 % consultas criadas
@@ -46,4 +53,35 @@ colegas(X,Y) :- estudante(X,D), estudante(Y,D), X \== Y.
 
 % A e B são colegas?
 ?- colegas(julia, juliana).
+*/
+
+% consultas realizadas e resultados
+/*
+?- professor(leandro,X).
+X = mtm5454 ;
+X = mtm5412.
+
+?- ensina(mauro,X).
+X = pedro ;
+X = anna ;
+X = julia ;
+X = joao ;
+X = fernanda ;
+false.
+
+?- colegas(julia,X).
+X = pedro ;
+X = anna ;
+X = joao ;
+X = fernanda ;
+X = pedro ;
+X = anna ;
+false.
+
+?- colegas(julia,juliana).
+false.
+
+?- responsavel(ine5416,Y).
+Y = maicon.
+
 */
