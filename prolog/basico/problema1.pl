@@ -44,8 +44,15 @@ bisavo(X,Y) :- genitor(X,G), genitor(G,Y), homem(X).
 bisavoh(X,Y) :- genitor(X,G), genitor(G,Y), mulher(X).
 
 descendente(X,Y) :- ascendente(Y,X).
-descendente(X,Y) :- ascendente(Y,G), descendente(G,X)
+descendente(X,Y) :- ascendente(Y,G), descendente(G,X).
 feliz(X) :- genitor(X,Y).
+
+/*
+ * de maneira semelhante às regras 'ascendente' e 'descendente', a regra 'sobrinha' está
+ * relacionada com a regra 'tio' e 'tia'. X é 'sobrinha' de Y se é 'mulher' e se tem Y como
+ * 'tio' ou 'tia'.
+ */
+sobrinha(X,Y) :- (tio(Y,X); tia(Y,X)), mulher(X).
 
 
 % Consultas e resultados
@@ -150,5 +157,11 @@ false
 ?- feliz(pat)
 true
 
+?- sobrinha(X,Y).
+X = ana,
+Y = liz ;
+X = pat,
+Y = liz ;
+false.
 
 */
