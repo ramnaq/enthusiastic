@@ -1,1 +1,5 @@
-Exercícios e trabalhos da disciplina de Paradigmas de Programação (2018-01), com o professor Maicon R. Zatelli. Universidade Federal de Santa Catarina.
+Similar (simple) programming problems solved in different languages. The
+problems are from the Programming Paradigms course (Computer Science -
+Universidade Federal de Santa Catarina).
+
+All code was written learning the languages from zero, except python.
