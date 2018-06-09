@@ -1,19 +1,19 @@
-divisivel(N,K) :- (N mod K) =:= 0.
+divisible(N,K) :- (N mod K) =:= 0.
 
-% consultas e resultados
+% queries and results
 /*
-?- divisivel(3,1).
+?- divisible(3,1).
 true.
 
-?- divisivel(1,3).
+?- divisible(1,3).
 false.
 
-?- divisivel(7,14).
+?- divisible(7,14).
 false.
 
-?- divisivel(14,7).
+?- divisible(14,7).
 true.
 
-?- divisivel(14,8).
+?- divisible(14,8).
 false.
 */

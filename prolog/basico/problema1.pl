@@ -1,77 +1,78 @@
-genitor(pam, bob).
-genitor(tom, bob).
-genitor(tom, liz).
+parent(pam, bob).
+parent(tom, bob).
+parent(tom, liz).
 
-genitor(bob, ana).
-genitor(bob, pat).
+parent(bob, ana).
+parent(bob, pat).
 
-genitor(liz,bill).
+parent(liz,bill).
 
-genitor(pat, jim).
+parent(pat, jim).
 
-mulher(pam).
-mulher(liz).
-mulher(pat).
-mulher(ana).
-homem(tom).
-homem(bob).
-homem(jim).
-homem(bill).
+woman(pam).
+woman(liz).
+woman(pat).
+woman(ana).
+man(tom).
+man(bob).
+man(jim).
+man(bill).
 
-pai(X,Y) :- genitor(X,Y), homem(X).
-mae(X,Y) :- genitor(X,Y), mulher(X).
+father(X,Y) :- parent(X,Y), man(X).
+mother(X,Y) :- parent(X,Y), woman(X).
 
-avo(AvoX, X) :- genitor(GenitorX, X), genitor(AvoX, GenitorX), homem(AvoX).
-avoh(AvohX, X) :- genitor(GenitorX, X), genitor(AvohX, GenitorX), homem(AvohX).
-irmao(X,Y) :- genitor(PaiAmbos, X), genitor(PaiAmbos, Y), X \== Y, homem(X).
-irma(X,Y) :- genitor(PaiAmbos, X), genitor(PaiAmbos, Y), X \== Y, mulher(X).
-irmaos(X,Y) :- (irmao(X,Y); irma(X,Y)), X \== Y.
+grandfather(Grandfather, X) :- parent(Parent, X), parent(Grandfather, Parent), man(Grandfather).
+grandmother(Grandmother, X) :- parent(Parent, X), parent(Grandmother, Parent), man(Grandmother).
+brother(X,Y) :- parent(Father, X), parent(Father, Y), X \== Y, man(X).
+sister(X,Y) :- parent(Father, X), parent(Father, Y), X \== Y, woman(X).
+siblings(X,Y) :- (brother(X,Y); sister(X,Y)), X \== Y.
 
-ascendente(X,Y) :- genitor(X,Y). %recursão - caso base
-ascendente(X,Y) :- genitor(X, Z), ascendente(Z, Y). %recursão - passo recursivo
+ascendent(X,Y) :- parent(X,Y).
+ascendent(X,Y) :- parent(X, Z), ascendent(Z, Y).
 
 
-/* PROBLEMA 1 - regras adicionadas */
+% code above was provided by the professor.
+/* QUESTION 1 */
 
-tio(X,Y) :- irmao(X,G), genitor(G,Y).
-tia(X,Y) :- irma(X,G), genitor(G,Y).
+uncle(X,Y) :- brother(X,G), parent(G,Y).
+aunt(X,Y) :- sister(X,G), parent(G,Y).
 
-primo(X,Y) :- (tio(T,Y); tia(T,Y)), genitor(T,X), homem(X).
-prima(X,Y) :- (tio(T,Y); tia(T,Y)), genitor(T,X), mulher(X).
-primos(X,Y) :- primo(X,Y); prima(X,Y).
+m_cousin(X,Y) :- (uncle(T,Y); aunt(T,Y)), parent(T,X), man(X).
+f_cousin(X,Y) :- (uncle(T,Y); aunt(T,Y)), parent(T,X), woman(X).
+m_cousins(X,Y) :- m_cousin(X,Y); f_cousin(X,Y).
 
-bisavo(X,Y) :- genitor(X,G), genitor(G,Y), homem(X).
-bisavoh(X,Y) :- genitor(X,G), genitor(G,Y), mulher(X).
+great-grandfather(X,Y) :- parent(X,G), parent(G,Y), man(X).
+great-grandmother(X,Y) :- parent(X,G), parent(G,Y), woman(X).
 
-descendente(X,Y) :- ascendente(Y,X).
-descendente(X,Y) :- ascendente(Y,G), descendente(G,X).
-feliz(X) :- genitor(X,Y).
+descendent(X,Y) :- ascendent(Y,X).
+descendent(X,Y) :- ascendent(Y,G), descendent(G,X).
+happy(X) :- parent(X,Y).
 
 /*
- * de maneira semelhante às regras 'ascendente' e 'descendente', a regra 'sobrinha' está
- * relacionada com a regra 'tio' e 'tia'. X é 'sobrinha' de Y se é 'mulher' e se tem Y como
- * 'tio' ou 'tia'.
+ * similarly to the 'ascendent' and 'descendent' rules, the rule 'niece' is
+ * related to the rule 'uncle' and 'aunt'. X is niece of Y if it is 'woman' and
+ * if it has Y as 'uncle' or 'aunt'.
  */
-sobrinha(X,Y) :- (tio(Y,X); tia(Y,X)), mulher(X).
+niece(X,Y) :- (uncle(Y,X); aunt(Y,X)), woman(X).
 
 
-% Consultas e resultados
+% outputs
 /*
-?- tio(bob,Y).
+?- uncle(bob,Y).
 Y = bill.
 
-?- tio(X,bob).
+?- uncle(X,bob).
 false.
 
-?- tia(X,ana).
+?- aunt(X,ana).
 X = liz .
 
-?- tio(X,Y).
+?- uncle(X,Y).
 X = bob,
 Y = bill ;
 false.
 
-?- tia(X,Y).
+?- aunt(X,Y).
 X = liz,
 Y = ana ;
 X = liz,
@@ -80,21 +81,21 @@ X = ana,
 Y = jim ;
 false.
 
-?- primo(X,Y).
+?- m_cousin(X,Y).
 X = bill,
 Y = ana ;
 X = bill,
 Y = pat ;
 false.
 
-?- prima(X,Y).
+?- f_cousin(X,Y).
 X = ana,
 Y = bill ;
 X = pat,
 Y = bill ;
 false.
 
-?- primos(X,Y).
+?- cousins(X,Y).
 X = bill,
 Y = ana ;
 X = bill,
@@ -105,17 +106,17 @@ X = pat,
 Y = bill ;
 false.
 
-?- bisavo(bob,X).
+?- great-grandfather(bob,X).
 X = jim.
 
-?- bisavoh(ana,X).
+?- great-grandmother(ana,X).
 false.
 
-?- bisavoh(pam,X).
+?- great-grandmother(pam,X).
 X = ana ;
 X = pat.
 
-?- bisavo(X,Y).
+?- great-grandfather(X,Y).
 X = tom,
 Y = ana ;
 X = tom,
@@ -126,38 +127,38 @@ X = bob,
 Y = jim ;
 false.
 
-?- bisavoh(X,Y).
+?- great-grandmother(X,Y).
 X = pam,
 Y = ana ;
 X = pam,
 Y = pat ;
 false.
 
-?- irma(ana,pat).
+?- sister(ana,pat).
 true.
 
-?- descendente(pam,ana).
+?- descendent(pam,ana).
 false.
 
-?- descendente(ana,pam).
+?- descendent(ana,pam).
 true.
 
-?- descendente(ana,tom).
+?- descendent(ana,tom).
 true.
 
-?- descendente(vim,bob).
+?- descendent(vim,bob).
 true.
 
-?- feliz(bob)
+?- happy(bob)
 true
 
-?- feliz(jim)
+?- happy(jim)
 false
 
-?- feliz(pat)
+?- happy(pat)
 true
 
-?- sobrinha(X,Y).
+?- niece(X,Y).
 X = ana,
 Y = liz ;
 X = pat,
