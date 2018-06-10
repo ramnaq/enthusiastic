@@ -2,6 +2,8 @@ max(X,Y,X) :- X >= Y.
 max(X,Y,Y) :- X < Y.
 
 mcd(X,Y,M) :-
+	X =:= 0, Y > 1, M is Y, !;
+	Y =:= 0, X > 1, M is X, !;
   	X =:= 0, Y =:= 0, M is -1, !;
 	(X =:= 1; Y =:= 1),(X =:= 0; Y =:= 0), M is -1, !;
 	X =:= 1, Y =:= 1, M is 1, !;
