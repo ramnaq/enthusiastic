@@ -1,23 +1,23 @@
-% fatos
+% facts
 
-estudante(pedro, ine5401).
-estudante(anna, ine5401).
-estudante(julia, ine5401).
-estudante(joao, ine5401).
-estudante(fernanda, ine5401).
+student(pedro, ine5401).
+student(anna, ine5401).
+student(julia, ine5401).
+student(joao, ine5401).
+student(fernanda, ine5401).
 
-estudante(pedro, ine5416).
-estudante(anna, ine5416).
-estudante(julia, ine5416).
+student(pedro, ine5416).
+student(anna, ine5416).
+student(julia, ine5416).
 
-estudante(joao, mtm5454).
-estudante(fernanda, mtm5454).
+student(joao, mtm5454).
+student(fernanda, mtm5454).
 
-estudante(juliana, ine5411).
-estudante(anna, ine5411).
+student(juliana, ine5411).
+student(anna, ine5411).
 
-estudante(augusto, ine5413).
-estudante(julio, ine5413).
+student(augusto, ine5413).
+student(julio, ine5413).
 
 professor(marcio, ine5413).
 professor(luiz, ine5411).
@@ -28,40 +28,40 @@ professor(leandro, mtm5412).
 professor(maicon, ine5416).
 
 
-% regras
+% rules
 
-ensina(X,Y) :- estudante(Y,D), professor(X,D).
-colegas(X,Y) :- estudante(X,D), estudante(Y,D), X \== Y.
+teaches(X,Y) :- student(Y,D), professor(X,D).
+colleagues(X,Y) :- student(X,D), student(Y,D), X \== Y.
 
-/* regra adicional
- * Se refere a quem é o professor Y de determinada disciplina X. Por exemplo:
- * responsavel(mtm5454, Y) resulta em Y = leandro.
+/* additional rule
+ * It refers to who is the professor Y of a certain course X. For example:
+ * responsable(mtm5454, Y) results in Y = leandro.
  */
-responsavel(X,Y) :- professor(Y,X).
+responsable(X,Y) :- professor(Y,X).
 
 
-% consultas criadas
+% queries
 /*
-% Quais são todas as disciplinas lecionadas pelo professor x?
-?- professor(leandro, X).
+% What courses are taught by the professor X?
+?- professor(leandro, Y).
 
-% Quais são todos os alunos do professor x?
-?- ensina(mauro, X).
+% What are the students of the professor X?
+?- teaches(mauro, Y).
 
-% Quais são todos os colegas do estudante y?
-?- colegas(julia, X).
+% What are the colleagues of the student X?
+?- colleagues(julia, Y).
 
-% A e B são colegas?
-?- colegas(julia, juliana).
+% Are A and B colleagues?
+?- colleagues(julia, juliana).
 */
 
-% consultas realizadas e resultados
+% outputs
 /*
 ?- professor(leandro,X).
 X = mtm5454 ;
 X = mtm5412.
 
-?- ensina(mauro,X).
+?- teaches(mauro,X).
 X = pedro ;
 X = anna ;
 X = julia ;
@@ -69,7 +69,7 @@ X = joao ;
 X = fernanda ;
 false.
 
-?- colegas(julia,X).
+?- colleagues(julia,X).
 X = pedro ;
 X = anna ;
 X = joao ;
@@ -78,10 +78,10 @@ X = pedro ;
 X = anna ;
 false.
 
-?- colegas(julia,juliana).
+?- colleagues(julia,juliana).
 false.
 
-?- responsavel(ine5416,Y).
+?- responsable(ine5416,Y).
 Y = maicon.
 
 */
