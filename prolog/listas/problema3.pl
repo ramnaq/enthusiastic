@@ -3,7 +3,7 @@
 to_string([],[]) :- !.
 to_string([H|T],S) :-
 	to_string(T,A), str(H,Str), S = [Str|A], !.
-		
+
 str(0,"zero") :- !.
 str(1,"one") :- !.
 str(2,"two") :- !.

@@ -1,8 +1,8 @@
 fib(N,K) :-
-  	N < 0, K is -1, !;
-	N =:= 0, K is 0, !;
-	N =:= 1, K is 1, !;
-	fib(N-2, A), fib(N-1, B), K is A + B.
+    N < 0, K is -1, !;
+    N =:= 0, K is 0, !;
+    N =:= 1, K is 1, !;
+    fib(N-2, A), fib(N-1, B), K is A + B.
 
 /* output
 ?- fib(0,X).
