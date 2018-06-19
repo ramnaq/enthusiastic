@@ -8,7 +8,7 @@ greatest([H|T], N) :-
 lowest([X],X) :- !.
 lowest([H|T],N) :-
     lowest(T,K), min(H,K,N), !.
- 
+
 min(A,B,M) :-
 	A =< B, M = A, !;
 	M = B.
