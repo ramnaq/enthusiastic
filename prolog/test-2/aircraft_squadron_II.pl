@@ -70,7 +70,7 @@ solution(Solution) :-
 	],
 
 
-	% assertions to cover the list above:
+	% assertions corresponding the given clues:
 
 	%1
 	to_the_left(aviao(farfarelli,_,_,_,_,_), aviao(_,_,_,_,_,futebol), Solution),
