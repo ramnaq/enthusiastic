@@ -1,0 +1,39 @@
+1 - O Cap. Farfarelli está em algum lugar à esquerda de quem gosta de praticar Futebol.
+
+2 - Quem gosta de beber Água também gosta de Pescar nos finais-de-semana.
+
+3 - O Cap. Walter voa em algum lugar entre os praticantes de Equitação e Tênis, nesta ordem.
+
+4 - O homem que joga Tênis está no meio da formação.
+
+5 - O avião com anomalia no Rádio, o piloto que gosta de Café e o Mineiro estão nessa ordem na formação (não necessariamente um ao lado do outro).
+
+6 - Quem gosta de beber Chá está em algum lugar entre os pilotos que bebem Cerveja e Café, nesta ordem.
+
+7 - Quem bebe Cerveja está na posição mais a esquerda da formação.
+
+8 - O piloto que bebe Água está ao lado do avião com anomalia na Bússola.
+
+9 - O avião com pane no Altímetro está em algum lugar à direita do Cel. Rui.
+
+10 - Quem gosta de Futebol pilota o avião que está exatamente à direita do avião com pane no Altímetro.
+
+11 - O Cel. Rui está pilotando o avião que está em algum lugar à esquerda do avião com problemas na Bússola.
+
+12 - Os aviões com anomalias de Rádio, Hidráulico e de Temperatura se apresentam nesta ordem (não necessariamente um ao lado do outro).
+
+13 - O avião que solta fumaça Verde voa em algum lugar à direita do avião pilotado por Farfarelli.
+
+14 - O avião pilotado pelo Cel. Rui solta fumaça Branca.
+
+15 - O piloto que gosta de Chá pilota o avião que solta fumaça Azul.
+
+16 - O Paulista pilota o avião que está exatamente à esquerda do que solta fumaça Amarela.
+
+17 - O Cel. Rui voa ao lado do piloto Mineiro.
+
+18 - O piloto Sul-rio-grandense está exatamente à direita de quem gosta de tomar Cerveja.
+
+19 - O piloto Fluminense pilota ao lado do avião que solta fumaça Azul.
+
+20 - O Cap. Nascimento voa ao lado do piloto que gosta de tomar Chá.
