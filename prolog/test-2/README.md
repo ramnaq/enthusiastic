@@ -12,5 +12,5 @@ To get the solution, just run:
 
 Or the following query to better read the resultant list:
 ```
-?- solution(List), nth0(0,List,A), nth0(1,List,B), nth0(2,List,C), nth0(3,List,D), nth0(4, List, E)
+?- solution(List), nth0(0,List,A), nth0(1,List,B), nth0(2,List,C), nth0(3,List,D), nth0(4, List, E).
 ```

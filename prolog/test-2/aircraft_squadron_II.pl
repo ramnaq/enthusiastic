@@ -70,10 +70,15 @@ solution(Solution) :-
 	],
 
 
-	% assertions corresponding the given clues:
+         % assertions corresponding the given clues:
+         %
+         % (all variables in the form X_ are an 'aviao' which has the value X.
+         %  E.g: aviao(_,_,X,_,_,_) or aviao(_,X,_,_,_,_))
 
-	%1
-	to_the_left(aviao(farfarelli,_,_,_,_,_), aviao(_,_,_,_,_,futebol), Solution),
+	%1 (clue 1, check in clues.txt)
+	Farfarelli_ = aviao(farfarelli,_,_,_,_,_),
+	Futebol_ = aviao(_,_,_,_,_,futebol),
+	to_the_left(Farfarelli_, Futebol_, Solution),
 
 	%2
 	member(aviao(_,_,_,_,agua,pesca), Solution),
@@ -112,7 +117,6 @@ solution(Solution) :-
 	to_the_right(Altimetro_, Rui_, Solution),
 
 	%10
-	Futebol_ = aviao(_,_,_,_,_,futebol),
 	are_next(Futebol_, Altimetro_, Solution),
 	to_the_right(Futebol_, Altimetro_, Solution),
 
@@ -127,7 +131,6 @@ solution(Solution) :-
 
 	%13
 	Verde_ = aviao(_,_,verde,_,_,_),
-	Farfarelli_ = aviao(farfarelli,_,_,_,_,_),
 	to_the_right(Verde_, Farfarelli_, Solution),
 
 	%14
@@ -153,7 +156,7 @@ solution(Solution) :-
 	%19
 	are_next(aviao(_,fluminense,_,_,_,_), aviao(_,_,azul,_,_,_), Solution),
 
-	%10
+	%20
 	are_next(aviao(nascimento,_,_,_,_,_), Cha_, Solution),
 
 
