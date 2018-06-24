@@ -1,0 +1,20 @@
+1 - O nadador mais velho do grupo conquistou o maior número de medalhas.
+2 - Quem usa a touca Azul está em alguma raia à esquerda do nadador com 19 anos.
+3 - O nadador com 20 anos está em uma das raias das pontas.
+4 - Quem gosta de beber limonada está exatamente à esquerda de quem é especialista em nado Crawl.
+5 - O atleta que bebe suco de Maracujá está em alguma raia à direita de quem usa a touca Azul.
+6 - Na segunda raia está o nadador que bebe suco de Laranja.
+7 - O mais velho dos nadadores está na raia número 3.
+8 - Quem ganhou 3 medalhas está na segunda raia.
+9 - Quem ganhou 5 medalhas está posicionado exatamente à esquerda de quem gosta de suco de Laranja.
+
+10 - O especialista em nado Peito está na raia número 2.
+11 - O especialista em nado Costas está exatamente à direita de quem conquistou 3 medalhas.
+12 - O Brasileiro conquistou o maior número de medalhas entre os 4 nadadores.
+13 - O nadador da China está exatamente à esquerda do nadador do Brasil.
+14 - O nadador dos EUA conquistou 5 medalhas.
+15 - Na última raia está o nadador com a touca branca.
+16 - O especialista em nado Borboleta está ao lado de quem usa a touca Azul.
+17 - O nadador Estadunidense está usando a touca verde.
+
+
