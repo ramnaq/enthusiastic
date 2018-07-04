@@ -1,0 +1,96 @@
+Exemplos de consultas realizadas no sistema especialista:
+
+?- doenca(X).
+temperatura corporal >= 38º?
+|: nao.
+Temperatura corporal < 38º?
+|: nao.
+Manchas no corpo apareceram no 1º ou 2º dia?
+|: nao.
+Manchas no corpo apareceram entre o 2º e 5º dia?
+|: nao.
+Manchas no corpo apareceram após o 4º dia?
+|: nao.
+Não há manchas na pele?
+|: sim.
+
+X = dengue .
+
+
+?- doenca(X).
+temperatura corporal >= 38º?
+|: sim.
+Febre durante 2 a 3 dias?
+|: nao.
+Febre durante 4 a 7 dias?
+|: sim.
+
+X = dengue .
+
+
+?- doenca(zika).
+temperatura corporal >= 38º?
+|: nao.
+Temperatura corporal < 38º?
+|: nao.
+Manchas no corpo apareceram no 1º ou 2º dia?
+|: nao.
+Manchas no corpo apareceram entre o 2º e 5º dia?
+|: nao.
+Manchas no corpo apareceram após o 4º dia?
+|: nao.
+Não há manchas na pele?
+|: nao.
+Há dor nos músculos?
+|: nao.
+Não há dor nos músculos?
+|: nao.
+
+false.
+
+
+?- doenca(X).
+temperatura corporal >= 38º?
+|: nao.
+Temperatura corporal < 38º?
+|: nao.
+Manchas no corpo apareceram no 1º ou 2º dia?
+|: nao.
+Manchas no corpo apareceram entre o 2º e 5º dia?
+|: nao.
+Manchas no corpo apareceram após o 4º dia?
+|: nao.
+Não há manchas na pele?
+|: nao.
+Há dor nos músculos?
+|: nao.
+Não há dor nos músculos?
+|: sim.
+
+X = nao_doente .
+
+
+?- doenca(X).
+temperatura corporal >= 38º?
+|: nao.
+Temperatura corporal < 38º?
+|: nao.
+Manchas no corpo apareceram no 1º ou 2º dia?
+|: nao
+Manchas no corpo apareceram entre o 2º e 5º dia?
+|: nao.
+Manchas no corpo apareceram após o 4º dia?
+|: nao.
+Não há manchas na pele?
+|: nao.
+Há dor nos músculos?
+|: sim.
+Dor intensa?
+|: nao.
+Dor moderada?
+|: nao.
+Dor leve?
+|: sim.
+
+X = chikungunya .
+
